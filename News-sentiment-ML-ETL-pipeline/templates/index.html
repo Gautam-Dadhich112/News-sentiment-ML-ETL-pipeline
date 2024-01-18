@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family: cursive;
+      }
+    
+     input,
+        textarea {
+        width: 100%;
+        padding: 5px;
+        outline: none;
+      }
+    
+      label {
+        line-height: 1.9rem;
+      }
+    
+      input[type="submit"] {
+       transform: translate(2.2%);
+       padding: 3px;
+       margin-top: 0.6rem;
+       font-family: cursive;
+       font-weight: bold;
+      }
+    
+     fieldset {
+       padding: 20px 40px;
+     }
+    
+    </style>
+</head>
+
+<body>
+
+    <form action="http://127.0.0.1:5000/getting_data">
+        <fieldset>
+          <legend>Good Morning !!</legend>
+          <div class="form-control">
+            <label for="date">Select Date of - (2024)</label>
+            <input type="date" name="date" placeholder="Select the Date" required>
+          </div>
+
+          <br><br>
+          <div class="form-control">
+            <label for="sentiment">Sentiment</label>
+            <select id="sentiments" name="sentiments">
+                <option value="">-- Select Sentiment --</option>
+                <option value="positive">Positive</option>
+                <option value="negative">Negative</option>
+                <option value="neutral">Neutral</option>
+                <!-- <option value="all">All</option> -->
+              </select>
+          </div>
+    
+          <input type="submit" value="See-News" class="submit-btn" />
+        </fieldset>
+    </form>
+</body>
+</html>
+
+
+
+

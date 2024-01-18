@@ -1,0 +1,11 @@
+flask
+flask_mysqldb
+requests
+pandas
+numpy
+textblob
+mysql.connector
+sqlalchemy
+cryptography
+mysql-connector-python
+pymysql
