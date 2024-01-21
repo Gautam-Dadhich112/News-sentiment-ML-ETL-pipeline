@@ -5,13 +5,8 @@ import numpy as np
 from textblob import TextBlob
 from sqlalchemy import create_engine
 
-def news_fetch():
-  url = ('https://newsapi.org/v2/everything?'
-        'q=Russia-Ukraine-war&'
-        'from=2024-01-06&'
-        'sortBy=popularity&'
-        'apiKey=389ed82f1909424185318432a6a03c66')
-
+def news_fetch(topic):
+  url = "https://newsapi.org/v2/everything?q={topic1}&from=2024-01-01&sortBy=popularity&apiKey=389ed82f1909424185318432a6a03c66".format(topic1 = topic)
   response = requests.get(url)
   response.ok # for status code less than 400 it returns true
   response_json = response.json()
@@ -47,11 +42,13 @@ def news_fetch():
   # port=3306
   def get_connection():
     return create_engine(
+      # url="mysql+mysqlconnector://root:@localhost/sentiment_analysis"
       url="mysql+mysqlconnector://root:root@mysql/sentiment_analysis"
     )
 
   engine = get_connection()
   # engine = create_engine("mysql+mysqlconnector://root:root@localhost:3306/sentiment_analysis")
+  newDf.drop_duplicates()
   newDf.to_sql('sentiments', con=engine, if_exists='replace', index=False)
   newDf[newDf['Date'] == '2024-01-07']
 
@@ -75,4 +72,3 @@ def sentiment_analysis(tweet):
     return 'Positive'
  tweet ['Analysis'] = tweet['Polarity'].apply(getAnalysis )
  return tweet
-

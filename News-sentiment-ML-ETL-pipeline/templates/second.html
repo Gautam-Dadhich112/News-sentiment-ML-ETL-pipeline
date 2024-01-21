@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>!! Enjoy The News !!</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #fff;
+            margin-bottom: 5px;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        li a {
+            text-align: center;
+            text-decoration: none;
+            color: #4285f4;
+            display: block;
+        }
+        li a:hover {
+            text-decoration: underline;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1 >!! Enjoy The News !!</h1>
+    <ul>
+        {% for url in urls %}
+            <li> {{ loop.index }}. <a href="{{ url[0] }}" target="_blank">{{ url }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
