@@ -13,13 +13,13 @@ jobs:
         name: Check out the repo
         uses: actions/checkout@v3
       
-      # -
-      #   name: Set up QEMU
-      #   uses: docker/setup-qemu-action@v2
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
       
-      # -
-      #   name: Setting Docker Buildx
-      #   uses: docker/setup-buildx-action@v2
+      -
+        name: Setting Docker Buildx
+        uses: docker/setup-buildx-action@v2
 
       - 
         name: Log in to Docker Hub
@@ -32,9 +32,12 @@ jobs:
         name: Build and push News API Image
         uses: docker/build-push-action@v4
         with:
-          context: News-sentiment-ML-ETL-pipeline/
+          context: .
           push: true
-          tags: gautam112/newsapi112:latest
+          tags: |
+            gautam112/news-api-final-app:latest
+            gautam112/news-api-final-mysql:latest
+
         
       # - 
       #   name: Build and push Mysql Image
