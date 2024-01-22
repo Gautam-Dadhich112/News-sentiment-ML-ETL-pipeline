@@ -35,8 +35,8 @@ jobs:
           context: News-sentiment-ML-ETL-pipeline/
           push: true
           tags: |
-            gautam112/news-api-final-app:latest
-            gautam112/news-api-final-mysql:latest
+            gautam112/newsapi112/news-api-final-app:latest
+            gautam112/newsapi112/news-api-final-mysql:latest
 
         
       # - 
