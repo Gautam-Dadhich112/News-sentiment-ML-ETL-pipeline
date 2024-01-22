@@ -7,10 +7,13 @@ services:
       - mysql
 
   mysql:
-    build: ./mysql/
+    # build: ./mysql/
+    image: mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: sentiment_analysis
     ports:
       - "3306:3306"
+    volumes:
+      - ./News-sentiment-ML-ETL-pipeline:/docker-entrypoint-initdb.d/:ro
