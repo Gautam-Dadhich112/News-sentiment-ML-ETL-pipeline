@@ -1,19 +1,16 @@
 services:
   app:
-    build: ./News-sentiment-ML-ETL-pipeline/
+    image: gautam112/newsapi112:latest
     ports:
       - "5000:5000"
     depends_on:
       - mysql
 
   mysql:
-    # build: ./mysql/
-    image: mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: sentiment_analysis
-    ports:
-      - "3306:3306"
-    volumes:
-      - ./News-sentiment-ML-ETL-pipeline:/docker-entrypoint-initdb.d/:ro
+      image: gautam112/newsapi112:1.0
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: sentiment_analysis
+      ports:
+        - "3306:3306"
