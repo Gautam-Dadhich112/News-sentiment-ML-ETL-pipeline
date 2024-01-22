@@ -17,9 +17,9 @@ jobs:
       #   name: Set up QEMU
       #   uses: docker/setup-qemu-action@v2
       
-      # -
-      #   name: Setting Docker Buildx
-      #   uses: docker/setup-buildx-action@v2
+      -
+        name: Setting Docker Buildx
+        uses: docker/setup-buildx-action@v2
 
       - 
         name: Log in to Docker Hub
@@ -32,11 +32,14 @@ jobs:
         name: Build and push News API Image
         uses: docker/build-push-action@v4
         with:
-          context: News-sentiment-ML-ETL-pipeline/
+          # context: News-sentiment-ML-ETL-pipeline/
+          context: .
           push: true
-          tags: |
-            gautam112/newsapi112/news-api-final-app:latest
-            gautam112/newsapi112/news-api-final-mysql:1.0
+          tags: 
+            gatuam112/newsapi112:latest
+          # tags: |
+          #   gautam112/newsapi112/news-api-final-app:latest
+          #   gautam112/newsapi112/news-api-final-mysql:1.0
 
         
       # - 
