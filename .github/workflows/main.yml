@@ -24,7 +24,7 @@ jobs:
         name: Build and push News API Image
         uses: docker/build-push-action@v4
         with:
-          context: News-sentiment-ML-ETL-pipeline/
+          context: .
           push: true
           tags: gautam112/newsapi112:latest
         
