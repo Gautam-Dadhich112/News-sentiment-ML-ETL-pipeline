@@ -20,13 +20,10 @@ def get_data(date, sentiment):
     return results
 
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def get_info():
-    return render_template('index.html')
-
-
-@app.route('/getting_data', methods = ['POST', 'GET'])
-def login():
+    if(request.method == "GET"):
+        return render_template('index.html')
     topic = request.form.get('topic')
     news_fetch(topic)
     date = request.form.get('date')
