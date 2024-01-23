@@ -27,13 +27,12 @@ def get_info():
 
 @app.route('/getting_data', methods = ['POST', 'GET'])
 def login():
-    if request.method == 'GET':
-        topic = request.args.get('topic')
-        news_fetch(topic)
-        date = request.args.get('date')
-        sentiments = request.args.get('sentiments')
-        urls = get_data(date, sentiments)
-        return render_template('second.html', urls = urls)
+    topic = request.form.get('topic')
+    news_fetch(topic)
+    date = request.form.get('date')
+    sentiments = request.form.get('sentiments')
+    urls = get_data(date, sentiments)
+    return render_template('second.html', urls = urls)
 
 if __name__=='__main__':
     app.run(debug=True, host="0.0.0.0", port=5000)
