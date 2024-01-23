@@ -2,7 +2,7 @@ services:
   app:
     image: gautam112/newsapi112:latest
     ports:
-      - "5000:5000"
+      - "5001:5001"
     depends_on:
       - mysql
 
